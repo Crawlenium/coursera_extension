@@ -1,6 +1,8 @@
 document.getElementById('start').addEventListener('click', () => {
     chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+        const tab = tabs[0];
 
+    function mainFunc(){
         function getInfomaionInEachCertificate(element){
             element.getElementsByClassName('add-to-linkedin-section')[0].children[0].click()
             const details = document.getElementsByClassName("rc-AccomplishmentCard card-rich-interaction")[0].children[1].children[2]
@@ -12,21 +14,26 @@ document.getElementById('start').addEventListener('click', () => {
             const credentialID = details.getElementsByClassName('linkedin-detail-value')[4].textContent
             const credentialURL = details.getElementsByClassName('linkedin-detail-value')[5].textContent
 
-            console.log([name, issuingOrganization, issueDate, expirationDate, credentialID, credentialURL].join(";"))
-            // return [name, issuingOrganization, issueDate, expirationDate, credentialID, credentialURL].join(";")
+            return [name, issuingOrganization, issueDate, expirationDate, credentialID, credentialURL].join(";")
         }
 
         const all_certificate_section = document.getElementsByClassName("rc-AccomplishmentCard card-rich-interaction");
-        
+        const info = [];
         for (element of all_certificate_section){
-            getInfomaionInEachCertificate(element)
+            info.push(getInfomaionInEachCertificate(element));
         }
-        
+
+        const link = document.createElement("a");
+        const file = new Blob([info], { type: 'text/plain' });
+        link.href = URL.createObjectURL(file);
+        link.download = "accomplishment.txt";
+        link.click();
+        URL.revokeObjectURL(link.href);
+    };
 
         chrome.scripting.executeScript({
             target: { tabId: tab.id },
             func: mainFunc,
-            //        files: ['contentScript.js'],  // To call external file instead
         }).then(() => console.log('Injected a function!'));
     });
 });
