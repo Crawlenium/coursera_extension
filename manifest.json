@@ -1,6 +1,6 @@
 {
-  "name": "Chien binh Android",
-  "description": "Automatically fill in quizzes in Chien binh Android",
+  "name": "Coursera Accomplishment",
+  "description": "Automatically get Accomplishment in Coursera",
   "version": "0.0.1",
   "manifest_version": 3,
   "icons": {
