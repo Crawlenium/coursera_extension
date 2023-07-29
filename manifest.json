@@ -4,10 +4,10 @@
   "version": "0.0.1",
   "manifest_version": 3,
   "icons": {
-    "16": "images/coursera.png",
-    "32": "images/coursera.png",
-    "48": "images/coursera.png",
-    "128": "images/coursera.png"
+    "16": "images/coursera.jpg",
+    "32": "images/coursera.jpg",
+    "48": "images/coursera.jpg",
+    "128": "images/coursera.jpg"
   },
   "permissions": [
     "scripting",
