@@ -1,0 +1,19 @@
+{
+  "name": "Chien binh Android",
+  "description": "Automatically fill in quizzes in Chien binh Android",
+  "version": "0.0.1",
+  "manifest_version": 3,
+  "icons": {
+    "16": "images/coursera.png",
+    "32": "images/coursera.png",
+    "48": "images/coursera.png",
+    "128": "images/coursera.png"
+  },
+  "permissions": [
+    "scripting",
+    "activeTab"
+  ],
+  "action": {
+    "default_popup": "index.html"
+  }
+}
