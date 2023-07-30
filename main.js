@@ -29,7 +29,7 @@ document.getElementById('start').addEventListener('click', () => {
         }
 
         const link = document.createElement("a");
-        const file = new Blob([info], { type: 'text/plain' });
+        const file = new Blob([info.join("\n")], { type: 'text/plain' });
         link.href = URL.createObjectURL(file);
         link.download = "accomplishment.txt";
         link.click();
