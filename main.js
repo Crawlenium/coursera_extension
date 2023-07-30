@@ -4,15 +4,12 @@ document.getElementById('start').addEventListener('click', () => {
 
     function mainFunc(){
         function getInfomaionInEachCertificate(element){
-            element.getElementsByClassName('add-to-linkedin-section')[0].children[0].click()
+            if (element.children.length==2) {
+                element.getElementsByClassName('add-to-linkedin-section')[0].children[0].click()
+            }
             const details = element.children[1].children[2]
             
-            try {
-                let name = details.getElementsByClassName('linkedin-detail-value')[0].children[0].textContent
-            } catch {
-                let name = details.getElementsByClassName('linkedin-detail-value')[0].textContent
-            }
-
+            let name = details.getElementsByClassName('linkedin-detail-value')[0].textContent
             let issuingOrganization = details.getElementsByClassName('linkedin-detail-value')[1].textContent
             let issueDate = details.getElementsByClassName('linkedin-detail-value')[2].textContent
             let expirationDate = details.getElementsByClassName('linkedin-detail-value')[3].textContent
